@@ -1,0 +1,711 @@
+
+Alumno@C01 MINGW64 ~
+$ git config--global user.name Federico
+git: 'config--global' is not a git command. See 'git --help'.
+
+Alumno@C01 MINGW64 ~
+$ git config --global user.name Federico
+
+Alumno@C01 MINGW64 ~
+$ git config --global user.email 1955fedama@gmail.com
+
+Alumno@C01 MINGW64 ~
+$ git config --global color.ui auto
+
+Alumno@C01 MINGW64 ~
+$ git config --list
+diff.astextplain.textconv=astextplain
+filter.lfs.clean=git-lfs clean -- %f
+filter.lfs.smudge=git-lfs smudge -- %f
+filter.lfs.process=git-lfs filter-process
+filter.lfs.required=true
+http.sslbackend=openssl
+http.sslcainfo=C:/Users/Alumno/AppData/Local/Programs/Git/mingw64/etc/ssl/certs/ca-bundle.crt
+core.autocrlf=true
+core.fscache=true
+core.symlinks=true
+pull.rebase=false
+credential.helper=manager
+credential.https://dev.azure.com.usehttppath=true
+init.defaultbranch=master
+user.name=Federico
+user.email=1955fedama@gmail.com
+color.ui=auto
+
+Alumno@C01 MINGW64 ~
+$ mkdir libro
+
+Alumno@C01 MINGW64 ~
+$ cd libro
+
+Alumno@C01 MINGW64 ~/libro
+$ git init
+Initialized empty Git repository in C:/Users/Alumno/libro/.git/
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ is --la
+bash: is: command not found
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ ls --la
+ls: unknown option -- la
+Try 'ls --help' for more information.
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ ls -la
+total 20
+drwxr-xr-x 1 Alumno 197121 0 Apr 17 20:23 ./
+drwxr-xr-x 1 Alumno 197121 0 Apr 17 20:23 ../
+drwxr-xr-x 1 Alumno 197121 0 Apr 17 20:23 .git/
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ git status
+On branch master
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ cat > indice.txt
+Capitulo 1: Introduccion a Git
+Capitulo 2: Flujo de trabajo basico
+Capitulo 3: Repositorios remotos
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        indice.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ git add indice.txt
+warning: in the working copy of 'indice.txt', LF will be replaced by CRLF the next time Git touches it
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   indice.txt
+
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ git commit -m "Añadido indice del libro."
+[master (root-commit) 1136464] Añadido indice del libro.
+ 1 file changed, 3 insertions(+)
+ create mode 100644 indice.txt
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ cat > injdice.txt
+Capitulo 1: Introduccion a Git
+Capitulo 2: Flujo de trabajo basico
+Capitulo 3: Gestion de ramas
+Capitulo 4: Repositorios remotos
+
+Alumno@C01 MINGW64 ~/libro (master)
+$
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ git diff
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ git add indice.txt
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ git diff
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ git commit -m "Añadido capitulo 3 sobre gestion de ramas"
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        injdice.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ git add indice.txt
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ git commit -m "Añadido capitulo 3 sobre gestion de ramas"
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        injdice.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ cat > indice.txt
+Capitulo 1: Introduccion a Git
+Capitulo 2: Flujo de trabajo basico
+Capitulo 3: Gestion de ramas
+Capitulo 4: Repositorios remotos
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ git diff
+warning: in the working copy of 'indice.txt', LF will be replaced by CRLF the next time Git touches it
+diff --git a/indice.txt b/indice.txt
+index e54589c..9e8e1da 100644
+--- a/indice.txt
++++ b/indice.txt
+@@ -1,3 +1,4 @@
+ Capitulo 1: Introduccion a Git
+ Capitulo 2: Flujo de trabajo basico
+-Capitulo 3: Repositorios remotos
++Capitulo 3: Gestion de ramas
++Capitulo 4: Repositorios remotos
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ git commit -m "Añadido capitulo 3 sobre gestion de ramas"
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   indice.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        injdice.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ git log
+commit 11364642e6146b8f62976b8e610ad6f574667def (HEAD -> master)
+Author: Federico <1955fedama@gmail.com>
+Date:   Wed Apr 17 20:32:41 2024 -0300
+
+    Añadido indice del libro.
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ mkdir capitulos
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ cat > capitulos/capitulo1.txt
+Git es un sistema de control de versiones ideado por Linus Torvalds.
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ git add
+Nothing specified, nothing added.
+hint: Maybe you wanted to say 'git add .'?
+hint: Turn this message off by running
+hint: "git config advice.addEmptyPathspec false"
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ git add .
+warning: in the working copy of 'indice.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'capitulos/capitulo1.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'injdice.txt', LF will be replaced by CRLF the next time Git touches it
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ git commit -m "Añadido capitulo 1"
+[master 2ec160c] Añadido capitulo 1
+ 3 files changed, 7 insertions(+), 1 deletion(-)
+ create mode 100644 capitulos/capitulo1.txt
+ create mode 100644 injdice.txt
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ git log
+commit 2ec160c5ebccbb465d859cd74dadf1fc7ddf9232 (HEAD -> master)
+Author: Federico <1955fedama@gmail.com>
+Date:   Wed Apr 17 20:46:03 2024 -0300
+
+    Añadido capitulo 1
+
+commit 11364642e6146b8f62976b8e610ad6f574667def
+Author: Federico <1955fedama@gmail.com>
+Date:   Wed Apr 17 20:32:41 2024 -0300
+
+    Añadido indice del libro.
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ git rm injdice.txt
+rm 'injdice.txt'
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        deleted:    injdice.txt
+
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ cat > capitulos/capitulo2.txt
+El flujo de trabajo basico con Git consiste en: 1- Hacer cambios en el repositorio. 2- Añadir los cambios a la zona de intercambio temporal. 3- Hacer un commit de los cambios.
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ git add .
+warning: in the working copy of 'capitulos/capitulo2.txt', LF will be replaced by CRLF the next time Git touches it
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ git commit -m "Añadido capitulo 2"
+[master ae9c1a8] Añadido capitulo 2
+ 2 files changed, 1 insertion(+), 4 deletions(-)
+ create mode 100644 capitulos/capitulo2.txt
+ delete mode 100644 injdice.txt
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ git log
+commit ae9c1a8fe6c809bc1b02461d31a9ba141329ec5f (HEAD -> master)
+Author: Federico <1955fedama@gmail.com>
+Date:   Wed Apr 17 20:58:05 2024 -0300
+
+    Añadido capitulo 2
+
+commit 2ec160c5ebccbb465d859cd74dadf1fc7ddf9232
+Author: Federico <1955fedama@gmail.com>
+Date:   Wed Apr 17 20:46:03 2024 -0300
+
+    Añadido capitulo 1
+
+commit 11364642e6146b8f62976b8e610ad6f574667def
+Author: Federico <1955fedama@gmail.com>
+Date:   Wed Apr 17 20:32:41 2024 -0300
+
+    Añadido indice del libro.
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ git diff
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ cat > capitulos/capitulo3.txt
+Git permite la creacion de ramas lo que permite tener distintas versiones del mismo proyecto y trabajar de manera simultanea en ellas.
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ git add .
+warning: in the working copy of 'capitulos/capitulo3.txt', LF will be replaced by CRLF the next time Git touches it
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ git commit -m "Añadido capitulo 3"
+[master ba16c23] Añadido capitulo 3
+ 1 file changed, 1 insertion(+)
+ create mode 100644 capitulos/capitulo3.txt
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ git log
+commit ba16c23766e61cfe4c96564b5c8c83d27339ad3f (HEAD -> master)
+Author: Federico <1955fedama@gmail.com>
+Date:   Wed Apr 17 21:06:30 2024 -0300
+
+    Añadido capitulo 3
+
+commit ae9c1a8fe6c809bc1b02461d31a9ba141329ec5f
+Author: Federico <1955fedama@gmail.com>
+Date:   Wed Apr 17 20:58:05 2024 -0300
+
+    Añadido capitulo 2
+
+commit 2ec160c5ebccbb465d859cd74dadf1fc7ddf9232
+Author: Federico <1955fedama@gmail.com>
+Date:   Wed Apr 17 20:46:03 2024 -0300
+
+    Añadido capitulo 1
+
+commit 11364642e6146b8f62976b8e610ad6f574667def
+Author: Federico <1955fedama@gmail.com>
+Date:   Wed Apr 17 20:32:41 2024 -0300
+
+    Añadido indice del libro.
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ cat > indice.txt
+Capitulo 1: Introduccion a Git
+Capitulo 2: Flujo de trabajo basico
+Capitulo 3: Gestion de ramas
+Capìtulo 4: Repositorios remotos
+Capitulo 5: Conceptos avanzados
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ git diff
+warning: in the working copy of 'indice.txt', LF will be replaced by CRLF the next time Git touches it
+diff --git a/indice.txt b/indice.txt
+index 9e8e1da..555ec8b 100644
+--- a/indice.txt
++++ b/indice.txt
+@@ -1,4 +1,5 @@
+ Capitulo 1: Introduccion a Git
+ Capitulo 2: Flujo de trabajo basico
+ Capitulo 3: Gestion de ramas
+-Capitulo 4: Repositorios remotos
++Capìtulo 4: Repositorios remotos
++Capitulo 5: Conceptos avanzados
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ git add indice.txt
+warning: in the working copy of 'indice.txt', LF will be replaced by CRLF the next time Git touches it
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ git commit -m "Añadido capitulo 5 al indice"
+[master 0e93679] Añadido capitulo 5 al indice
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ git log
+commit 0e936798da2764c7c30f0ed9b29c6d3399bac05c (HEAD -> master)
+Author: Federico <1955fedama@gmail.com>
+Date:   Wed Apr 17 21:15:21 2024 -0300
+
+    Añadido capitulo 5 al indice
+
+commit ba16c23766e61cfe4c96564b5c8c83d27339ad3f
+Author: Federico <1955fedama@gmail.com>
+Date:   Wed Apr 17 21:06:30 2024 -0300
+
+    Añadido capitulo 3
+
+commit ae9c1a8fe6c809bc1b02461d31a9ba141329ec5f
+Author: Federico <1955fedama@gmail.com>
+Date:   Wed Apr 17 20:58:05 2024 -0300
+
+    Añadido capitulo 2
+
+commit 2ec160c5ebccbb465d859cd74dadf1fc7ddf9232
+Author: Federico <1955fedama@gmail.com>
+Date:   Wed Apr 17 20:46:03 2024 -0300
+
+    Añadido capitulo 1
+
+commit 11364642e6146b8f62976b8e610ad6f574667def
+Author: Federico <1955fedama@gmail.com>
+Date:   Wed Apr 17 20:32:41 2024 -0300
+
+    Añadido indice del libro.
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ nano indice.txt
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   indice.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ git checkout -- indice.txt
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ nano indice.txt
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ git add .
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   indice.txt
+
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ git reset indice.txt
+Unstaged changes after reset:
+M       indice.txt
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   indice.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ git checkout -- indice.txt
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ nano indice.txt
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ nano indice.txt
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ nano indice.txt
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ git rm capitulos/capitulo3
+fatal: pathspec 'capitulos/capitulo3' did not match any files
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ git rm capitulo3
+fatal: pathspec 'capitulo3' did not match any files
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ git rm capitulos/capitulo3.txt
+rm 'capitulos/capitulo3.txt'
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ cat > capitulos/capitulo4.txt
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ git add .
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        deleted:    capitulos/capitulo3.txt
+        new file:   capitulos/capitulo4.txt
+        modified:   indice.txt
+
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ git reset indice.txt
+Unstaged changes after reset:
+M       indice.txt
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ ^[[200~
+bash: $'\E[200~': command not found
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ git reset indice.txt
+Unstaged changes after reset:
+M       indice.txt
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        deleted:    capitulos/capitulo3.txt
+        new file:   capitulos/capitulo4.txt
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   indice.txt
+
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ git checkout -- indice.txt
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        deleted:    capitulos/capitulo3.txt
+        new file:   capitulos/capitulo4.txt
+
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ nano indice.txt
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ nano indice.txt
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ nano indice.txt
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ git checkout -- indice.txt
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ nano indice.txt
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ nano indice.txt
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ git rm capitulos/capitulo3.txt
+fatal: pathspec 'capitulos/capitulo3.txt' did not match any files
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ git rm capitulos/capitulo3.txt
+fatal: pathspec 'capitulos/capitulo3.txt' did not match any files
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        deleted:    capitulos/capitulo3.txt
+        new file:   capitulos/capitulo4.txt
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   indice.txt
+
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ git log
+commit 0e936798da2764c7c30f0ed9b29c6d3399bac05c (HEAD -> master)
+Author: Federico <1955fedama@gmail.com>
+Date:   Wed Apr 17 21:15:21 2024 -0300
+
+    Añadido capitulo 5 al indice
+
+commit ba16c23766e61cfe4c96564b5c8c83d27339ad3f
+Author: Federico <1955fedama@gmail.com>
+Date:   Wed Apr 17 21:06:30 2024 -0300
+
+    Añadido capitulo 3
+
+commit ae9c1a8fe6c809bc1b02461d31a9ba141329ec5f
+Author: Federico <1955fedama@gmail.com>
+Date:   Wed Apr 17 20:58:05 2024 -0300
+
+    Añadido capitulo 2
+
+commit 2ec160c5ebccbb465d859cd74dadf1fc7ddf9232
+Author: Federico <1955fedama@gmail.com>
+Date:   Wed Apr 17 20:46:03 2024 -0300
+
+    Añadido capitulo 1
+
+commit 11364642e6146b8f62976b8e610ad6f574667def
+Author: Federico <1955fedama@gmail.com>
+Date:   Wed Apr 17 20:32:41 2024 -0300
+
+    Añadido indice del libro.
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ git commit -m "Borrado accidental"
+[master adc918d] Borrado accidental
+ 2 files changed, 1 deletion(-)
+ delete mode 100644 capitulos/capitulo3.txt
+ create mode 100644 capitulos/capitulo4.txt
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   indice.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ git checkout -- indice.txt
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ git log
+commit adc918dea76935cf4be042efe54ca1033d3c912e (HEAD -> master)
+Author: Federico <1955fedama@gmail.com>
+Date:   Wed Apr 17 21:53:09 2024 -0300
+
+    Borrado accidental
+
+commit 0e936798da2764c7c30f0ed9b29c6d3399bac05c
+Author: Federico <1955fedama@gmail.com>
+Date:   Wed Apr 17 21:15:21 2024 -0300
+
+    Añadido capitulo 5 al indice
+
+commit ba16c23766e61cfe4c96564b5c8c83d27339ad3f
+Author: Federico <1955fedama@gmail.com>
+Date:   Wed Apr 17 21:06:30 2024 -0300
+
+    Añadido capitulo 3
+
+commit ae9c1a8fe6c809bc1b02461d31a9ba141329ec5f
+Author: Federico <1955fedama@gmail.com>
+Date:   Wed Apr 17 20:58:05 2024 -0300
+
+    Añadido capitulo 2
+
+commit 2ec160c5ebccbb465d859cd74dadf1fc7ddf9232
+Author: Federico <1955fedama@gmail.com>
+Date:   Wed Apr 17 20:46:03 2024 -0300
+
+    Añadido capitulo 1
+
+commit 11364642e6146b8f62976b8e610ad6f574667def
+Author: Federico <1955fedama@gmail.com>
+Date:   Wed Apr 17 20:32:41 2024 -0300
+
+    Añadido indice del libro.
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ git reset indice.txt
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ git log
+commit adc918dea76935cf4be042efe54ca1033d3c912e (HEAD -> master)
+Author: Federico <1955fedama@gmail.com>
+Date:   Wed Apr 17 21:53:09 2024 -0300
+
+    Borrado accidental
+
+commit 0e936798da2764c7c30f0ed9b29c6d3399bac05c
+Author: Federico <1955fedama@gmail.com>
+Date:   Wed Apr 17 21:15:21 2024 -0300
+
+    Añadido capitulo 5 al indice
+
+commit ba16c23766e61cfe4c96564b5c8c83d27339ad3f
+Author: Federico <1955fedama@gmail.com>
+Date:   Wed Apr 17 21:06:30 2024 -0300
+
+    Añadido capitulo 3
+
+commit ae9c1a8fe6c809bc1b02461d31a9ba141329ec5f
+Author: Federico <1955fedama@gmail.com>
+Date:   Wed Apr 17 20:58:05 2024 -0300
+
+    Añadido capitulo 2
+
+commit 2ec160c5ebccbb465d859cd74dadf1fc7ddf9232
+Author: Federico <1955fedama@gmail.com>
+Date:   Wed Apr 17 20:46:03 2024 -0300
+
+    Añadido capitulo 1
+
+commit 11364642e6146b8f62976b8e610ad6f574667def
+Author: Federico <1955fedama@gmail.com>
+Date:   Wed Apr 17 20:32:41 2024 -0300
+
+    Añadido indice del libro.
+
+Alumno@C01 MINGW64 ~/libro (master)
+$ git checkout -- indice.txt
+
+Alumno@C01 MINGW64 ~/libro (master)
+$
